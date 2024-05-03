@@ -4,6 +4,22 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Prep3 World!");
+        Console.WriteLine("Please enter a number");
+    
+        int number = Console.ReadLine();
+
+        do{
+
+        Console.WriteLine("Enter a guess");
+        int guess = Console.ReadLine();
+        if (guess>number)
+        {
+          Console.WriteLine("Lower");  
+        }
+        else if (guess<number);
+        {
+            Console.WriteLine("Higher");
+        }
+        } while (guess != number);
     }
 }
