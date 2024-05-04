@@ -8,7 +8,8 @@ class Program
     
         int number = Console.ReadLine();
 
-        do{
+        do
+        {
 
         Console.WriteLine("Enter a guess");
         int guess = Console.ReadLine();
@@ -16,7 +17,7 @@ class Program
         {
           Console.WriteLine("Lower");  
         }
-        else if (guess<number);
+        else if (guess<number)
         {
             Console.WriteLine("Higher");
         }
