@@ -4,15 +4,19 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Please enter a number");
+        Console.WriteLine("Please enter the magic number");
     
-        int number = Console.ReadLine();
+        string numberStr = Console.ReadLine();
+        int number = int.Parse(numberStr);
 
+        int guess = 0;
         do
         {
 
         Console.WriteLine("Enter a guess");
-        int guess = Console.ReadLine();
+        string guessStr = Console.ReadLine();
+        guess = int.Parse(Console.ReadLine());
+
         if (guess>number)
         {
           Console.WriteLine("Lower");  
@@ -21,6 +25,6 @@ class Program
         {
             Console.WriteLine("Higher");
         }
-        } while (guess != number);
+        } while (guess!= number);
     }
 }
