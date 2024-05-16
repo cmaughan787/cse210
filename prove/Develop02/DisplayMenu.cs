@@ -39,3 +39,7 @@ class Menu
                         }
     }
 }
+
+class PromptGenerator{
+    
+}

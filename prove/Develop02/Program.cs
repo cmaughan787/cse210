@@ -7,6 +7,9 @@ class Program
     {
        var test = new Menu();
         test.DisplayMenu();
+
+        PromptGenerator prompt = new();
+
     
     }
 }                
