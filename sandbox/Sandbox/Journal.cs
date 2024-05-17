@@ -1,9 +1,9 @@
-class Journal
-{
-    List<Entry> entries;
+// class Journal
+// {
+//     List<Entry> entries;
 
-    public void AddEntry(Entry entry)
-    {
-        entries.Add(entry);
-    }
-}
+//     public void AddEntry(Entry entry)
+//     {
+//         entries.Add(entry);
+//     }
+// }

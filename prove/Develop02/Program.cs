@@ -8,8 +8,11 @@ class Program
        var test = new Menu();
         test.DisplayMenu();
 
-        PromptGenerator prompt = new();
+        PromptGenerator prompt3 = new PromptGenerator();
+        prompt3.testprompt();
 
+        Entry entry = new Entry("May 15","hello");
+        entry.Display();
     
     }
 }                

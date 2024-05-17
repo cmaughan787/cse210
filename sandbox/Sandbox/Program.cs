@@ -4,11 +4,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        PromptGenerator prompt3 = new PromptGenerator();
-        prompt3.testprompt();
+        // PromptGenerator prompt3 = new PromptGenerator();
+        // prompt3.testprompt();
 
-        Entry entry = new Entry("May 15","hello");
-        entry.Display();
+        // Entry entry = new Entry("May 15","hello");
+        // entry.Display();
 
     }
 
