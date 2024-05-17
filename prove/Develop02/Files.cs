@@ -1,11 +1,15 @@
 using System;
 using System.IO; 
 
-class Files
+public class Files
 {
     public void DisplayEntries()
     {
         string fileName = "MyJournal.txt";
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine($"{DisplayEntries}");
+        }
     }
 
 

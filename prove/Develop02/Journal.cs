@@ -1,9 +1,21 @@
-class Journal
+public class Journal
 {
-    List<Entry> entries;
+    public List<Entry> _entries = new List<Entry>();
+
+    public Journal()
+    {
+    //_entries = new List<Entry>();
+    }
 
     public void AddEntry(Entry entry)
     {
-        entries.Add(entry);
+        _entries.Add(entry);
+    }
+    public void DisplayEntries()
+    {
+        foreach (var entry in _entries)
+        {
+            entry.Display();
+        }
     }
 }

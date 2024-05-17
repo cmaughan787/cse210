@@ -1,9 +1,9 @@
-class Entry
+public class Entry
 {
-    string date;
+    DateTime date;
     string text;
 
-    public Entry(string entryDate, string entryText)
+    public Entry(DateTime entryDate, string entryText)
     {
         date = entryDate;
         text = entryText;
