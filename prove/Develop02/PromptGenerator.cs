@@ -24,13 +24,15 @@ class PromptGenerator
 "What is something new you would like to learn, and why does it interest you?",
 "Write about a dream or aspiration you have for your future, and what steps you can take to move closer to it."
 };
-
-    public void testprompt()
+string prompt;
+    public string testprompt()
     {
         Random random = new Random();
         int randomNumber = random.Next(0,20);
 
-        string prompt = prompts[randomNumber];
+        prompt = prompts[randomNumber];
         Console.WriteLine(prompt);
+        return prompt;
+       
     }
 }

@@ -24,18 +24,25 @@ public class Menu
                             if (var1 == 1) 
                             {
                                 PromptGenerator prompt3 = new PromptGenerator();
-                                prompt3.testprompt();
-
+                                 string myprompt = prompt3.testprompt();
+                                //Console.WriteLine(myprompt); // Uncomment for debug purposes
+                                
+                                
                                 string userInput = Console.ReadLine();
+                                //TODO: add 3rd entity to the constructor so it writes to the file.
+                                
                                 Entry entry = new Entry(DateTime.Now, userInput);
                                 entry.Display();
                                 startJournal._entries.Add(entry);
-                                //startJournal._entries.Add(entry);
+
+;                                //startJournal._entries.Add(entry);
                             }
                             if (var1 == 2) 
+
                             {
                                 Journal journal = new Journal();
-                                journal.DisplayEntries();
+                                Console.WriteLine("Displaying Journal entries.");
+                                startJournal.DisplayEntries();
                             }
                             if (var1 == 3) 
                             {
