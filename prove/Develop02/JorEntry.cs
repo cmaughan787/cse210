@@ -2,17 +2,19 @@ public class Entry
 {
     DateTime date;
     string text;
+    string jorprompt;
 
 
-    public Entry(DateTime entryDate, string entryText)
+    public Entry(DateTime entryDate, string entryPrompt, string entryText)
     {
         date = entryDate;
         text = entryText;
+        jorprompt = entryPrompt;
 
     } 
     public void Display()
     {
-        Console.WriteLine($"{date}, {text}");
+        Console.WriteLine($"Date: {date}, \nPrompt: {jorprompt} \n Entry: {text}");
     }
 }
 

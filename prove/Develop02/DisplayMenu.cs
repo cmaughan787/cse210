@@ -31,7 +31,7 @@ public class Menu
                                 string userInput = Console.ReadLine();
                                 //TODO: add 3rd entity to the constructor so it writes to the file.
                                 
-                                Entry entry = new Entry(DateTime.Now, userInput);
+                                Entry entry = new Entry(DateTime.Now, myprompt, userInput);
                                 entry.Display();
                                 startJournal._entries.Add(entry);
 
