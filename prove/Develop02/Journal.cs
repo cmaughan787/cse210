@@ -12,48 +12,34 @@ public class Journal
         {
             entry.Display();
         }
-        //SaveToFile(Journal._entries);
+       // SaveToFile(Journal._entries);
+        
     }
 
     public static void SaveToFile(List<Journal> _entries)
     {
+        // SAVE THE FILE Menu item 4
         Console.WriteLine("Saving journal...");
-        string fileName = "MyJournal.txt";
-        using (StreamWriter outputFile = new StreamWriter(fileName))
+        string fileName = Console.ReadLine();
+        using (StreamWriter outputFile = new StreamWriter(fileName, true))
         {
      
             foreach (Journal entry in _entries)
             {
-                outputFile.WriteLine(entry);
+                outputFile.WriteLine(_entries.Display(_entries));
             }
         }
     }
 
-    public static void LoadFromFile(string fileName)
+    public static List<Journal> LoadFromFile()
     {
-        Journal journal = new Journal();
+        Console.WriteLine("Reading journal from file.");
+        List<Journal> _entries = new List<Journal>();
+        string fileName = "MyJournal";
 
-        if (File.Exists(fileName))
-        {
-            string[] lines = File.ReadAllLines(fileName);
+        string[] lines = System.IO.File.ReadAllLines(fileName);
+         
+         return _entries;
 
-            foreach (var line in lines)
-            {
-                string[] parts = line.Split('\n');
-                if (parts.Length == 3)
-                {
-                    DateTime date = DateTime.Parse(parts[0]);
-                    string prompt = parts[1];
-                    string content = parts[2];
-
-                    Entry entry = new Entry(date, prompt, content);
-                    journal.AddEntry(entry);
-                }
-            }
-        }
-        else
-        {
-            Console.WriteLine($"File {fileName} does not exist.");
-        }
+    }   
     }
-}

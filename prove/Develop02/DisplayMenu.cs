@@ -1,4 +1,7 @@
 using System;
+using System.IO;
+
+
 
 public class Menu
 {
@@ -52,17 +55,18 @@ public class Menu
                             if (var1 == 3) 
                             {
                             //string fileName ="MyJournal";
-                            //Journal myJournal = Journal.LoadFromFile(fileName);
+                            string fileName = Console.ReadLine();
+                            Journal myJournal = Journal.LoadFromFile(fileName);
 
                             // Display loaded entries
                             Console.WriteLine("Displaying loaded journal entries:");
-                            //myJournal.DisplayEntries();
+                            myJournal.DisplayEntries();
                             }
                         
                             if (var1 == 4) 
                             {
-                                //Files file = new File();
-                                //Journal.SaveToFile(startJournal._entries);
+                            Files file = new File();
+                            Journal.SaveToFile(startJournal._entries);
                             }
                             if (var1 == 5) 
                             {
