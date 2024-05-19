@@ -29,7 +29,7 @@ public class Journal
         }
     }
 
-    public void LoadFromFile(string fileName)
+    public static void LoadFromFile(string fileName)
     {
         Journal journal = new Journal();
 
