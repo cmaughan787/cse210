@@ -2,9 +2,10 @@ using System;
 
 public class Menu
 {
+    public Journal startJournal = new Journal();
+     
     public void DisplayMenu()
     {
-        Journal startJournal = new Journal();
         Console.WriteLine("Welcome to your journal!");
         int q = 0;
         while (q != 1)
@@ -32,9 +33,9 @@ public class Menu
                                 //TODO: add 3rd entity to the constructor so it writes to the file.
                                 
                                 Entry entry = new Entry(DateTime.Now, myprompt, userInput);
-                                entry.Display();
+                                // entry.Display(); // Uncomment for debug
                                 startJournal._entries.Add(entry);
-
+                                
 ;                                //startJournal._entries.Add(entry);
                             }
                             if (var1 == 2) 
@@ -46,11 +47,18 @@ public class Menu
                             }
                             if (var1 == 3) 
                             {
-                                Console.WriteLine("3");
+                            string fileName ="MyJournal";
+                            Journal myJournal = Journal.LoadFromFile(fileName);
+
+                            // Display loaded entries
+                            Console.WriteLine("Displaying loaded journal entries:");
+                            myJournal.DisplayEntries();
                             }
+                        
                             if (var1 == 4) 
                             {
-                                Console.WriteLine("4");
+                                //Files file = new File();
+                                Journal.SaveToFile(startJournal._entries);
                             }
                             if (var1 == 5) 
                             {

@@ -14,7 +14,7 @@ public class Entry
     } 
     public void Display()
     {
-        Console.WriteLine($"Date: {date}, \nPrompt: {jorprompt} \n Entry: {text}");
+        Console.WriteLine($"Date: {date} \nPrompt: {jorprompt} \nEntry: {text}");
     }
 }
 
