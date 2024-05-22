@@ -1,8 +1,8 @@
 public class Entry
 {
-    DateTime date;
-    string text;
-    string jorprompt;
+    public DateTime date;
+    public string text;
+    public string jorprompt;
 
 
     public Entry(DateTime entryDate, string entryPrompt, string entryText)

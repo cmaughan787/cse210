@@ -19,23 +19,24 @@ public class Journal
     public static void SaveToFile(List<Journal> _entries)
     {
         // SAVE THE FILE Menu item 4
-        Console.WriteLine("Saving journal...");
-        string fileName = Console.ReadLine();
-        using (StreamWriter outputFile = new StreamWriter(fileName, true))
-        {
+        // Console.WriteLine("Saving journal...");
+        // string fileName = Console.ReadLine();
+        // using (StreamWriter outputFile = new StreamWriter(fileName, true))
+        // {
      
-            foreach (Journal entry in _entries)
-            {
-                outputFile.WriteLine(_entries.Display(_entries));
-            }
-        }
+        //     foreach (Journal entry in _entries)
+        //     {
+        //         outputFile.WriteLine(_entries.Display(_entries));
+        //     }
+        // }
     }
 
-    public static List<Journal> LoadFromFile()
+    public static Journal LoadFromFile(string fileName, Journal _entries)
     {
         Console.WriteLine("Reading journal from file.");
-        List<Journal> _entries = new List<Journal>();
-        string fileName = "MyJournal";
+        // Journal _entries = new List<Journal>();
+        // Journal alreeady created, delete all entries, rewrite journal with new entries from file
+        // string fileName = "MyJournal";
 
         string[] lines = System.IO.File.ReadAllLines(fileName);
          

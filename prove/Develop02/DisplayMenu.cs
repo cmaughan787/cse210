@@ -47,26 +47,27 @@ public class Menu
                             if (var1 == 2) 
 
                             {
-                                Journal journal = new Journal();
                                 Console.WriteLine("Displaying Journal entries.");
                                 startJournal.DisplayEntries();
                                 Console.WriteLine();
                             }
                             if (var1 == 3) 
                             {
+                                //put a write asking for the filename
                             //string fileName ="MyJournal";
                             string fileName = Console.ReadLine();
-                            Journal myJournal = Journal.LoadFromFile(fileName);
-
+                            // Journal myJournal = new Journal();
+                            // myJournal = Journal.LoadFromFile(fileName, startJournal);
+                            startJournal = Journal.LoadFromFile(fileName, startJournal);
                             // Display loaded entries
                             Console.WriteLine("Displaying loaded journal entries:");
-                            myJournal.DisplayEntries();
+                            startJournal.DisplayEntries();
                             }
                         
                             if (var1 == 4) 
                             {
-                            Files file = new File();
-                            Journal.SaveToFile(startJournal._entries);
+                            Files file = new Files();
+                            file.SaveToFile(startJournal);
                             }
                             if (var1 == 5) 
                             {
