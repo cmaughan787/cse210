@@ -20,13 +20,14 @@ public class Menu
             Console.WriteLine("3. Load journal");
             Console.WriteLine("4. Save new entry");
             Console.WriteLine("5. Quit");
+            Console.WriteLine("6. Select for motivation!");
             Console.WriteLine();
             Console.Write("What would you like to do: ");
             int var1 = Convert.ToInt16(Console.ReadLine());
             //Console.WriteLine(var1);
-                            if (var1 > 5)
+                            if (var1 > 6)
                         {
-                            Console.WriteLine("Please enter a number from 1-5");
+                            Console.WriteLine("Please enter a number from 1-6");
                         }
                             if (var1 == 1) 
                             {
@@ -55,10 +56,11 @@ public class Menu
                             {
                                 //put a write asking for the filename
                             //string fileName ="MyJournal";
+                            Console.Write("Please enter the file name:");
                             string fileName = Console.ReadLine();
                             // Journal myJournal = new Journal();
                             // myJournal = Journal.LoadFromFile(fileName, startJournal);
-                            startJournal = Journal.LoadFromFile(fileName, startJournal);
+                            startJournal = startJournal.LoadFromFile(fileName, startJournal);
                             // Display loaded entries
                             Console.WriteLine("Displaying loaded journal entries:");
                             startJournal.DisplayEntries();
@@ -66,6 +68,7 @@ public class Menu
                         
                             if (var1 == 4) 
                             {
+                            Console.WriteLine("Saving journal...");
                             Files file = new Files();
                             file.SaveToFile(startJournal);
                             }
@@ -73,6 +76,10 @@ public class Menu
                             {
                                 Console.WriteLine("Thank you for visiting your journal! Goodbye.");
                                 q = 1;
+                            }
+                            if (var1 == 6)
+                            {
+                                Console.WriteLine("You can do it!!");
                             }
          }
     }

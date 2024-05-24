@@ -13,7 +13,7 @@ public class Files
      
             foreach (Entry entry in journal._entries)
             {
-                outputFile.WriteLine($"Date: {entry.date} \nPrompt: {entry.jorprompt} \nEntry: {entry.text}");
+                outputFile.WriteLine($"{entry.date} | {entry.jorprompt} | {entry.text}");
             }
         }
     }
