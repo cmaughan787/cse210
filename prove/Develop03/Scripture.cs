@@ -5,15 +5,34 @@ public class Scripture
 {
     private Reference _reference;
     private string _words;
+    private Word _checker;
 
-    public Scripture( Reference reference, string words)
+
+    public Word GetChecker()
+    {
+        return _checker;
+    }
+    public Scripture(Reference reference, string words)
     {
         _reference = reference;
         _words = words;
+        _checker = new Word(Words.Count);
+        foreach (var word in Words)
+        {
+            string _ok = "";
+            for (int i = 0; i < word.Length; i++)
+            {
+                _ok += "_";
+            }
+            Replace.Add(_ok);
+        } 
     }
 
     public List<string> Words = new List<string>
     {
+        "Moroni",
+        "7:",
+        "33",
         "And",
         "Christ",
         "hath",
@@ -38,23 +57,41 @@ public class Scripture
         "in",
         "me."
     };
+    public List<string> Replace = new List<string>();
+    // {
+    // "___”, “_____”, “____”, “____:”, “__”, “__”, “____”, “____”, “_____”, "__", "__", "__", "_____", "____", "_____", "__", "__", "__________", "_____", "__", "_________", "__", "__." 
+    // };
+
+        public void DisplayVer()
+        {
+            string s = string.Join(" ", Words);
+            Console.WriteLine(s);
+        }
         
-        public void HideWord()
-        {
-     Random random = new Random();
-     int moroniCount = Words.Count;
-
+    public void HideWord()
+    {
+    int count = 0;
+    while (count == 0)
+    {
+        Random random = new Random();
+        int moroniCount = Words.Count;
         int randomNumber = random.Next(moroniCount);
-        if (wordManager.CheckIndex(indexToCheck))
-        {
-            Console.WriteLine($"Index {indexToCheck} is true.");
-        }
-        else
-        {
-            Console.WriteLine($"Index {indexToCheck} is false.");
-        }
 
+        // IF TURE REPLACE
+        
+        if (_checker.CheckIndex(randomNumber) == true)
+        {
+            Console.Clear();
+            Words[randomNumber] = Replace[randomNumber];
+            DisplayVer();
+            //SET bool to FALSE
+            _checker.SetFalse(randomNumber);
+            Console.WriteLine(randomNumber);
+            count = 1;
         }
+        // IF FALSE GENERATE NEW NUMBER
+        }
+    }
 
     public void Display()
 {

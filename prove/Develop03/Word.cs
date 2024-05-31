@@ -5,43 +5,37 @@ public class Word
 
 {
     private List<bool> boolList;
-    private Random random;
+    private Random random = new Random();
 
-        public WordManager(int size)
+    public Word(int size) 
     {
-        boolList = new List<bool>(new bool[size]);
+        boolList = new List<bool>(Enumerable.Repeat(true, size));
     }
-    public static void SetAllTrue()
+
+    // public void WordManager(int size)
+    // {
+    //     List<bool> boolList = new List<bool>(Enumerable.Repeat(true, size));
+    // }
+
+    public void SetAllTrue()
     {
-        // Define the size of the list
-        int size = 23;
-        
-        List<bool> boolList = new List<bool>(new bool[size]);
-        
-        // Assign true or false to each index based on a condition
         for (int i = 0; i < boolList.Count; i++)
-            {
-                boolList[i] = true;
-            }
+        {
+            boolList[i] = true;
+        }
+    }
             // use to see bool values
             // foreach (bool value in boolList)
             // {
             //     Console.WriteLine(value);
             // }
-    }
 
-    public void SetRandomFalse(int numberOfFalse)
+    public void SetFalse(int randomNumber)
     {
-        int count = 0;
-        while (count < numberOfFalse)
-        {
-            int randomIndex = random.Next(boolList.Count);
-            if (boolList[randomIndex])
-            {
-                boolList[randomIndex] = false;
-                count++;
-            }
-        }
+
+            // Console.WriteLine("bool", boolList.Count);
+
+                boolList[randomNumber] = false;
     }
         public bool CheckIndex(int index)
     {
@@ -51,4 +45,22 @@ public class Word
         }
         return boolList[index];
     }
+    public bool CheckAll()
+    {
+        int count = 0;
+        foreach (bool item in boolList)
+        {
+            
+            if (item)
+                count ++;
+        }
+        if (count == 0)
+        {
+            return false;
+        }
+        else 
+        {
+            return true;
+        }
     }
+}
