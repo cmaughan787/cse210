@@ -7,7 +7,7 @@ class Program
         Reference reference = new Reference("Moroni", 7, "33");
         Scripture scripture = new Scripture(reference, "And Christ hath said: If ye will have faith in me ye shall have power to do whatsoever thing is expedient in me.");
         scripture.Display();
-
+        // Word.Shown(); // for debug testing
         Console.WriteLine("Press enter or type 'quit'");
         string input = Console.ReadLine();
 

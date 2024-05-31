@@ -45,8 +45,14 @@ public class Scripture
      int moroniCount = Words.Count;
 
         int randomNumber = random.Next(moroniCount);
-        if (boolList[randomNumber] == false)
-            
+        if (wordManager.CheckIndex(indexToCheck))
+        {
+            Console.WriteLine($"Index {indexToCheck} is true.");
+        }
+        else
+        {
+            Console.WriteLine($"Index {indexToCheck} is false.");
+        }
 
         }
 
