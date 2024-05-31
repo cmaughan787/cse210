@@ -38,6 +38,17 @@ public class Scripture
         "in",
         "me."
     };
+        
+        public void HideWord()
+        {
+     Random random = new Random();
+     int moroniCount = Words.Count;
+
+        int randomNumber = random.Next(moroniCount);
+        if (boolList[randomNumber] == false)
+            
+
+        }
 
     public void Display()
 {
