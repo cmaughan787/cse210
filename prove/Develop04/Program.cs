@@ -6,13 +6,17 @@ class Program
     {
         Activity activity = new Activity("test", "aver", 15);
     
-    string answer = "";
 
+        // activity.DisplayWelcome();
+        // Console.WriteLine("Please select from menu:");
+        // string answer = Console.ReadLine();
+    string answer = "";
+        
     while (answer != "quit")
     {
-        activity.DisplayWelcome();
-        Console.WriteLine("Please select from menu:");
+        activity.SelectMenu();
         answer = Console.ReadLine();
+
         // fix so it doesn't run through twice before asking again for input 
         
         if (answer == "1")
@@ -30,9 +34,13 @@ class Program
         else if (answer == "4")
         {
             Console.WriteLine("Four");
-            answer = "quit";
             activity.Goodbye();
+            answer = "quit";
         }
+        else
+            {
+                Console.WriteLine("Invalid choice. Please try again.");
+            }
      }
     }
 }

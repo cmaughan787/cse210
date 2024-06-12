@@ -16,12 +16,18 @@ class Activity
 
     public void DisplayWelcome()
     {
-        Console.WriteLine("Welcome to your mindfullness app!");
+        Console.WriteLine("\nWelcome to your mindfullness app!");
         Console.WriteLine("Menu:");
         Console.WriteLine("1. Start breathing activity.");
         Console.WriteLine("2. Start Listing Activity.");
         Console.WriteLine("3. Start Reflecting Activity.");
         Console.WriteLine("4. Quit.");
+    }
+
+    public void SelectMenu()
+    {
+        DisplayWelcome();
+        Console.WriteLine("Please select from menu:");
     }
        
 
