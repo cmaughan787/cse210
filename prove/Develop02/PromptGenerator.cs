@@ -1,7 +1,7 @@
 class PromptGenerator
 {
 
-    public List<string> prompts = new List<string>
+    private List<string> prompts = new List<string>
 {
 "What are three things that made you smile today, and why?",
 "Describe a challenge you faced recently and how you overcame it.",

@@ -13,6 +13,7 @@ class Program
         activity.DisplayWelcome();
         Console.WriteLine("Please select from menu:");
         answer = Console.ReadLine();
+        // fix so it doesn't run through twice before asking again for input 
         
         if (answer == "1")
         {

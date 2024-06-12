@@ -32,15 +32,38 @@ class Activity
         return _duration;
     }
 
-    public void Countdown()
+    public void Animation()
+    {
+           int x = 0;
+    while (x != 2)
+    {
+            Console.Write("-"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("\\"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("|"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("/"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            x += 1;
+    }
+
+    }
+    public void Countdown(int sec)
     {
     
-        for (int i = 5; i >= 1; i--)
+        for (int i = sec; i >= 1; i--)
         {
-            Console.WriteLine(i);
+            Console.Write(i);
             System.Threading.Thread.Sleep(1000); // Wait for 1 second
+            Console.Write("\b \b");
+
         }
-        Console.WriteLine("Begin");
+        //Console.WriteLine("Begin");
     }
 
     public void Goodbye()
