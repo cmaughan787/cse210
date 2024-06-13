@@ -30,11 +30,14 @@ class Program
         }
         else if (answer == "3")
         {
-            Console.WriteLine("Three");
+            ReflectingActivity reflect = new ReflectingActivity("Reflecting Activity", "Let's take a moment to explore experiences where you overcame challenges. This will help you discover your inner strength and how you can apply it to future obstacles.", activity.Duration());
         }
-        else if (answer == "4")
+        else if (answer =="4")
         {
-            Console.WriteLine("Four");
+            Inspiration inspiration = new Inspiration("Inspiration", "Let yourself relax and reflex on inspiration quotes.", activity.Duration());
+        }
+        else if (answer == "5")
+        {
             activity.Goodbye();
             answer = "quit";
         }

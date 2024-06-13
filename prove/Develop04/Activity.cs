@@ -21,7 +21,8 @@ class Activity
         Console.WriteLine("1. Start breathing activity.");
         Console.WriteLine("2. Start Listing Activity.");
         Console.WriteLine("3. Start Reflecting Activity.");
-        Console.WriteLine("4. Quit.");
+        Console.WriteLine("4. Inspirational Quotes");
+        Console.WriteLine("5. Quit.");
     }
 
     public void SelectMenu()
