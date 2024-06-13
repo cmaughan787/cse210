@@ -2,7 +2,7 @@ using System.Diagnostics;
 
 class ReflectingActivity : Activity
 {
-        List<string> reflectPrompts = new List<string>
+       private List<string> reflectPrompts = new List<string>
         {
             "Recall a moment when you overcame a significant challenge. What steps did you take to achieve this success, and what did you learn about your capabilities?",
             "Think of a time when you received positive feedback from someone you respect. What was the feedback, and how did it make you feel?",
@@ -16,7 +16,7 @@ class ReflectingActivity : Activity
             "Think of a situation where you made a meaningful impact on a team or community. What actions did you take, and what was the result? How did this experience shape your understanding of your strengths?"
         };
 
-                List<string> questions = new List<string>()
+           private List<string> questions = new List<string>()
         {
             "In what way did this experience challenge you to grow?",
             "What surprised you the most about this experience?",
