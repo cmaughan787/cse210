@@ -16,6 +16,7 @@ class Program
     {
         activity.SelectMenu();
         answer = Console.ReadLine();
+        Console.WriteLine($"You selected: {answer}"); // Debugging line to check the input
 
         // fix so it doesn't run through twice before asking again for input 
         
@@ -25,7 +26,7 @@ class Program
         }
         else if (answer == "2")
         {
-            ListingActivity breathe = new ListingActivity("Listing Activity", "Let's embark on a journey of positive self-discovery! This activity will guide you to brainstorm all the wonderful things in a particular area of your life", activity.Duration());
+            ListingActivity list = new ListingActivity("Listing Activity", "Let's embark on a journey of positive self-discovery! This activity will guide you to brainstorm all the wonderful things in a particular area of your life", activity.Duration());
         }
         else if (answer == "3")
         {

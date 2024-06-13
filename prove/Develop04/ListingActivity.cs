@@ -24,15 +24,16 @@ class ListingActivity : Activity
         int randomNumber = random.Next(0,10);
 
         prompt = listPrompts[randomNumber];
-        Console.WriteLine(prompt);
+        Console.WriteLine($"---{prompt}---");
         Console.WriteLine("Starting in...");
         Countdown(5);
-        Console.WriteLine("Begin"); 
+         
         
             Console.WriteLine("Enter your text for {0} seconds (press Enter for a new line): ", duration);
             StringBuilder textInput = new StringBuilder();
 
             DateTime startTime = DateTime.Now; // Get current time
+        
 
             char key;
             while ((DateTime.Now - startTime) < TimeSpan.FromSeconds(duration)) // Loop for user-defined duration

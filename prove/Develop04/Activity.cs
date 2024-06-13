@@ -27,7 +27,7 @@ class Activity
     public void SelectMenu()
     {
         DisplayWelcome();
-        Console.WriteLine("Please select from menu:");
+        Console.Write("Please select from menu:");
     }
        
 
