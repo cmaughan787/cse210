@@ -1,4 +1,4 @@
-class Goal
+public abstract class Goal
 {
     protected string _description;
     public int _points;
@@ -7,7 +7,7 @@ class Goal
     public static List<Goal> goals = new List<Goal>();
 
 
-    public Goal(string description, int points, string title)
+    public Goal(string title, int points, string description)
     {
         _description = description;
         _points = points;
@@ -15,17 +15,17 @@ class Goal
 
     }
 
-    public void GetInfo()
-    {
-        Console.Write("What is the name of your goal? ");
-        _title = Console.ReadLine();
-        Console.Write("What is a short description of it? ");
-        _description = Console.ReadLine();
-        Console.Write("What amount of points is associated with this goal? ");
-        _points = int.Parse(Console.ReadLine());
-    }
+    public abstract void GetInfo();
+    // {
+    //     Console.Write("What is the name of your goal? ");
+    //     _title = Console.ReadLine();
+    //     Console.Write("What is a short description of it? ");
+    //     _description = Console.ReadLine();
+    //     Console.Write("What amount of points is associated with this goal? ");
+    //     _points = int.Parse(Console.ReadLine());
+    // }
 
-    public void SubMenu()
+    public static void SubMenu(List<Goal> goals)
     {
         Console.WriteLine("The types of goals are:");
         Console.WriteLine("1. Simple Goal");
@@ -36,15 +36,17 @@ class Goal
 
         if (goaltype == 1)
         {
-         GetInfo();
+            Simple simpleGoal = new Simple("", 0, "");
+            simpleGoal.GetInfo();
+            goals.Add(simpleGoal);
         }
         else if (goaltype == 2)
         {
-         GetInfo();
+         //GetInfo();
         }
         else if (goaltype == 3)
         {
-         GetInfo();
+         //GetInfo();
         }
     }
 public static void AddGoal(Goal goal)
@@ -63,10 +65,10 @@ public static void AddGoal(Goal goal)
         }
     }
 
-    public void DisplayGoal()
-    {
-      Console.WriteLine($"Title: {_title}, Description: {_description}, Points: {_points}");
-    }
+    // public static void DisplayGoal(List<Goal> goals)
+    // {
+    //   Console.WriteLine($"Title: {_title}, Description: {_description}, Points: {_points}");
+    // }
 
     public override string ToString()
     {

@@ -4,9 +4,15 @@ class Program
 {
     static void Main(string[] args)
     {
-        Goal menu = new Goal("as", 12, "qw");
+         int end = 0;
         int _points = 0;
-        Console.WriteLine($"You have {_points}");
+        List<Goal> goals = new List<Goal>();
+
+    while (end != 1)
+    {
+        // Goal menu = new Goal (title, _points, description); //Create inside the Sub menu!!!
+        _points = 0;
+        Console.WriteLine($"You have {_points} points");
         Console.WriteLine("");
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Create New Goal");
@@ -15,18 +21,18 @@ class Program
         Console.WriteLine("3. Load Goals");
         Console.WriteLine("5. Record Event");
         Console.WriteLine("6. Quit.");
-        Console.WriteLine("Select a choice from menu: ");
-        int answer = Console.Read();
+        Console.Write("Select a choice from menu: ");
+        int answer = int.Parse(Console.ReadLine());
 
                 
         if (answer == 1)
         {
-            menu.SubMenu();
+            Goal.SubMenu(goals);
         }
         else if (answer == 2)
         {
             Console.WriteLine("The goals are:");
-            menu.DisplayGoal();
+            // Goal.DisplayGoal(goals);
         }
         else if (answer == 3)
         {
@@ -48,6 +54,8 @@ class Program
             {
                 Console.WriteLine("Invalid choice. Please try again.");
             }
+
+    }
 
     }
 }
