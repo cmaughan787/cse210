@@ -15,5 +15,7 @@ class Checklist : Goal
         _description = Console.ReadLine();
         Console.Write("What amount of points is associated with this goal? ");
         _points = int.Parse(Console.ReadLine());
+        Console.WriteLine("How many times does this goal need to be accomplished for a bonus?");
+        _count = int.Parse(Console.ReadLine());
     }
     }

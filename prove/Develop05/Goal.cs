@@ -42,7 +42,9 @@ public abstract class Goal
         }
         else if (goaltype == 2)
         {
-         //GetInfo();
+            Eternal eternalGoal = new Eternal("", 0, "");
+            eternalGoal.GetInfo();
+            goals.Add(eternalGoal);
         }
         else if (goaltype == 3)
         {
