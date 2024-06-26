@@ -65,17 +65,30 @@ public abstract class Goal
             goals.Add(goal);
         }
 
+    // public static void SaveGoalsToFile(string filename, int totalPoints)
+    // {
+    //     using (StreamWriter writer = new StreamWriter(filename))
+    //     {
+    //         writer.WriteLine($"Points: {totalPoints}");
+    //         foreach (var goal in goals)
+    //         {
+    //             writer.WriteLine(goal.ToSaveString());
+    //         }
+    //     }
+    // }
+
     public static void SaveGoalsToFile(string filename, int totalPoints)
+{
+    List<string> linesToSave = new List<string>();
+    linesToSave.Add($"Points: {totalPoints}");
+
+    foreach (var goal in goals)
     {
-        using (StreamWriter writer = new StreamWriter(filename))
-        {
-            writer.WriteLine($"Points: {totalPoints}");
-            foreach (var goal in goals)
-            {
-                writer.WriteLine(goal.ToSaveString());
-            }
-        }
+        linesToSave.Add(goal.ToSaveString());
     }
+
+    File.WriteAllLines(filename, linesToSave.ToArray());
+}
 
 
        public class LoadResult

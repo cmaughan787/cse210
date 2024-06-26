@@ -30,7 +30,7 @@ class Eternal : Goal
 
         public override string ToSaveString()
     {
-        return $"Eternal Goal: {_title}, {_description}, {_points} points, Completed {_count} times";
+        return $"Eternal Goal: {_title}, {_description}, {_points} points";
     }
         public override string ToString()
     {

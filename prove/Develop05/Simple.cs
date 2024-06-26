@@ -43,7 +43,8 @@ public class Simple : Goal
     }
         public override string ToSaveString()
     {
-        return $"Simple Goal: {_title}, {_description}, {_points} points, Complete: {_complete}";
+        return $"Simple Goal: {_title}, {_description}, {_points} points, {_complete}";
+        // 
     }
 
         public override string ToString()
