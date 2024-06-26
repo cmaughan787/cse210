@@ -29,7 +29,11 @@ class Checklist : Goal
         public override int CompleteGoal()
     {
         _current++;
-        if (_current >= _count)
+        if (_current == _count)
+        {
+            return _bonus;
+        }
+        else
         {
             return _points;
         }
