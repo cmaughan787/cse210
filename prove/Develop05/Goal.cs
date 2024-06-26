@@ -16,6 +16,8 @@ public abstract class Goal
     }
 
     public abstract void GetInfo();
+    public abstract string ToSaveString();
+    public abstract override string ToString();
     // {
     //     Console.Write("What is the name of your goal? ");
     //     _title = Console.ReadLine();
@@ -31,8 +33,9 @@ public abstract class Goal
         Console.WriteLine("1. Simple Goal");
         Console.WriteLine("2. Eternal Goal");
         Console.WriteLine("3. Checklist Goal");
-        Console.WriteLine("Which type of goal would you like to create?");
+        Console.Write("Which type of goal would you like to create? ");
         int goaltype = int.Parse(Console.ReadLine());
+        Console.WriteLine("");
 
         if (goaltype == 1)
         {
@@ -48,7 +51,9 @@ public abstract class Goal
         }
         else if (goaltype == 3)
         {
-         //GetInfo();
+            Checklist eternalCheck = new Checklist("", 0, "");
+            eternalCheck.GetInfo();
+            goals.Add(eternalCheck);
         }
     }
 public static void AddGoal(Goal goal)
@@ -56,25 +61,81 @@ public static void AddGoal(Goal goal)
         goals.Add(goal);
     }
 
-    public static void SaveGoalsToFile(string filename)
+    public static void SaveGoalsToFile(string filename, int totalPoints)
     {
         using (StreamWriter writer = new StreamWriter(filename))
         {
+            writer.WriteLine($"Points: {totalPoints}");
             foreach (var goal in goals)
             {
-                writer.WriteLine(goal.ToString());
+                writer.WriteLine(goal.ToSaveString());
             }
         }
     }
 
-    // public static void DisplayGoal(List<Goal> goals)
-    // {
-    //   Console.WriteLine($"Title: {_title}, Description: {_description}, Points: {_points}");
-    // }
 
-    public override string ToString()
+       public class LoadResult
     {
-        return $"Title: {_title}, Description: {_description}, Points: {_points}";
+        public List<Goal> Goals { get; set; }
+        public int TotalPoints { get; set; }
     }
+
+    public static LoadResult LoadGoalsFromFile(string filename)
+    {
+        List<Goal> loadedGoals = new List<Goal>();
+        int totalPoints = 0;
+
+        using (StreamReader reader = new StreamReader(filename))
+        {
+            string pointsLine = reader.ReadLine();
+            totalPoints = int.Parse(pointsLine.Split(": ")[1]);
+
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                string[] parts = line.Split(", ");
+                string goalType = parts[0].Split(": ")[0];
+                string title = parts[0].Split(": ")[1];
+                string description = parts[1];
+                int points = int.Parse(parts[2].Split(" ")[0]);
+
+                if (goalType == "Simple Goal")
+                {
+                    Simple simpleGoal = new Simple(title, points, description);
+                    loadedGoals.Add(simpleGoal);
+                }
+                else if (goalType == "Eternal Goal")
+                {
+                    Eternal eternalGoal = new Eternal(title, points, description);
+                    loadedGoals.Add(eternalGoal);
+                }
+                else if (goalType == "Checklist Goal")
+                {
+                    int count = int.Parse(parts[3].Split(" ")[0]);
+                    Checklist checklistGoal = new Checklist(title, points, description);
+                    //checklistGoal.SetCount(count);
+                    loadedGoals.Add(checklistGoal);
+                }
+            }
+        }
+
+        return new LoadResult
+        {
+            Goals = loadedGoals,
+            TotalPoints = totalPoints
+        };
+    }
+
+    public static void DisplayGoals(List<Goal> goals)
+    {
+        foreach (var goal in goals)
+        {
+            Console.WriteLine($"[ ] {goal}");
+        }
+    }
+
+    
+        // return $"{_title} ({_description})";
+    
 
 }

@@ -16,5 +16,17 @@ public class Simple : Goal
         _description = Console.ReadLine();
         Console.Write("What amount of points is associated with this goal? ");
         _points = int.Parse(Console.ReadLine());
+        Console.WriteLine("");
+    }
+
+        public override string ToSaveString()
+    {
+        return $"Simple Goal: {_title}, {_description}, {_points} points, Complete: {_complete}";
+    }
+
+        public override string ToString()
+    {
+        return $"{_title} ({_description})";
     }
 }
+

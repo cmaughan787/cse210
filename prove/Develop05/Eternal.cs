@@ -16,4 +16,13 @@ class Eternal : Goal
         Console.Write("What amount of points is associated with this goal? ");
         _points = int.Parse(Console.ReadLine());
     }
+
+        public override string ToSaveString()
+    {
+        return $"Eternal Goal: {_title}, {_description}, {_points} points, Completed {_count} times";
+    }
+        public override string ToString()
+    {
+        return $"{_title} ({_description})";
+    }
     }

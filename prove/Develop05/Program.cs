@@ -7,6 +7,7 @@ class Program
          int end = 0;
         int _points = 0;
         List<Goal> goals = new List<Goal>();
+        
 
     while (end != 1)
     {
@@ -18,11 +19,12 @@ class Program
         Console.WriteLine("1. Create New Goal");
         Console.WriteLine("2. List Goals");
         Console.WriteLine("3. Save Goals");
-        Console.WriteLine("3. Load Goals");
+        Console.WriteLine("4. Load Goals");
         Console.WriteLine("5. Record Event");
         Console.WriteLine("6. Quit.");
         Console.Write("Select a choice from menu: ");
         int answer = int.Parse(Console.ReadLine());
+        Console.WriteLine("");
 
                 
         if (answer == 1)
@@ -32,11 +34,13 @@ class Program
         else if (answer == 2)
         {
             Console.WriteLine("The goals are:");
-            // Goal.DisplayGoal(goals);
+            Goal.DisplayGoals(goals);
         }
         else if (answer == 3)
         {
-            // asdf
+            Console.Write("What is the file name for the file? Please include .txt ");
+            string filename = Console.ReadLine();
+            Goal.SaveGoalsToFile(filename, _points);
         }
         else if (answer == 4)
         {
