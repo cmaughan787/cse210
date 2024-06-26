@@ -37,7 +37,7 @@ class Checklist : Goal
         {
             return _points;
         }
-        return 0;
+        //return 0;
     }
 
         public override void DisplayGoals()
