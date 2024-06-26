@@ -2,17 +2,25 @@ using System;
 
 class Program
 {
+    public static void ListGoals(List<Goal> goals)
+    {   
+        Console.WriteLine("Your goals are: ");
+        for (int i = 0; i <goals.Count; i++)
+        {
+            Console.Write($"{i+1}. ");
+            goals[i].DisplayGoals();
+        }
+    }
     static void Main(string[] args)
     {
          int end = 0;
         int _points = 0;
         List<Goal> goals = new List<Goal>();
-        
+
 
     while (end != 1)
     {
         // Goal menu = new Goal (title, _points, description); //Create inside the Sub menu!!!
-        _points = 0;
         Console.WriteLine($"You have {_points} points");
         Console.WriteLine("");
         Console.WriteLine("Menu Options:");
@@ -34,13 +42,20 @@ class Program
         else if (answer == 2)
         {
             Console.WriteLine("The goals are:");
-            Goal.DisplayGoals(goals);
+            ListGoals(goals);
+
         }
         else if (answer == 3)
         {
             Console.Write("What is the file name for the file? Please include .txt ");
             string filename = Console.ReadLine();
             Goal.SaveGoalsToFile(filename, _points);
+
+            Console.WriteLine("FOR DEBUG");
+            foreach (var goal in goals)
+            {
+                Console.WriteLine(goal.ToSaveString());
+            }
         }
         else if (answer == 4)
         {
@@ -48,11 +63,24 @@ class Program
         }
         else if (answer == 5)
         {
-            // asdf
+             Console.WriteLine("The goals are:");
+                ListGoals(goals);
+                Console.Write("Which goal did you complete? ");
+                int compGoal = int.Parse(Console.ReadLine());
+                compGoal -= 1;
+
+                if (compGoal >= 0 && compGoal < goals.Count)
+                {
+                    _points += goals[compGoal].CompleteGoal();
+                }
+                else
+                {
+                    Console.WriteLine("Invalid goal number.");
+                }
         }
         else if (answer == 6)
         {
-            // asdf
+            end = 1;
         }
         else
             {

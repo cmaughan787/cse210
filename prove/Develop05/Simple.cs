@@ -19,6 +19,28 @@ public class Simple : Goal
         Console.WriteLine("");
     }
 
+        public override void DisplayGoals()
+    {
+        if(!_complete)
+        {
+            Console.WriteLine($"[ ] {_title}, ({_description})");
+        }
+        else
+        {
+            Console.WriteLine($"[X] {_title}, ({_description})");
+        }
+    }
+        public override int CompleteGoal()
+    {
+        if (!_complete)
+        {
+            _complete = true;
+            Console.WriteLine(_points);
+            return _points;
+            
+        }
+        return 0;
+    }
         public override string ToSaveString()
     {
         return $"Simple Goal: {_title}, {_description}, {_points} points, Complete: {_complete}";

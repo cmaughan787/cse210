@@ -18,6 +18,8 @@ public abstract class Goal
     public abstract void GetInfo();
     public abstract string ToSaveString();
     public abstract override string ToString();
+    public abstract void DisplayGoals();
+    public abstract int CompleteGoal();
     // {
     //     Console.Write("What is the name of your goal? ");
     //     _title = Console.ReadLine();
@@ -56,10 +58,12 @@ public abstract class Goal
             goals.Add(eternalCheck);
         }
     }
-public static void AddGoal(Goal goal)
-    {
-        goals.Add(goal);
-    }
+
+
+    public static void AddGoal(Goal goal)
+        {
+            goals.Add(goal);
+        }
 
     public static void SaveGoalsToFile(string filename, int totalPoints)
     {
@@ -126,13 +130,13 @@ public static void AddGoal(Goal goal)
         };
     }
 
-    public static void DisplayGoals(List<Goal> goals)
-    {
-        foreach (var goal in goals)
-        {
-            Console.WriteLine($"[ ] {goal}");
-        }
-    }
+    // public static void DisplayGoals(List<Goal> goals)
+    // {
+    //     foreach (var goal in goals)
+    //     {
+    //         Console.WriteLine($"[ ] {goal}");
+    //     }
+    // }
 
     
         // return $"{_title} ({_description})";

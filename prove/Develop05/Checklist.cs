@@ -25,6 +25,27 @@ class Checklist : Goal
         _bonus = int.Parse(Console.ReadLine());
     }
 
+
+        public override int CompleteGoal()
+    {
+        _current++;
+        if (_current >= _count)
+        {
+            return _points;
+        }
+        return 0;
+    }
+
+        public override void DisplayGoals()
+        {
+            if (_current == _count)
+                Console.WriteLine($"[X] {_title}, ({_description}) -- Completed {_current}/{_count}");
+            else
+            {
+                Console.WriteLine($"[ ] {_title}, ({_description}) -- Completed {_current}/{_count}");
+            }
+        }
+
         public override string ToSaveString()
     {
         return $"Checklist Goal: {_title}, {_description}, {_points} points, {_bonus} bonus points, {_count} times to complete, {_current} completed";
