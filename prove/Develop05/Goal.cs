@@ -77,7 +77,7 @@ public abstract class Goal
     //     }
     // }
 
-    public static void SaveGoalsToFile(string filename, int totalPoints)
+    public static void SaveGoalsToFile(string filename, int totalPoints, List<Goal> goals)
 {
     List<string> linesToSave = new List<string>();
     linesToSave.Add($"Points: {totalPoints}");

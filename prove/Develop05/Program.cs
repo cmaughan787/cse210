@@ -42,29 +42,31 @@ class Program
         }
         else if (answer == 2)
         {
-            Console.WriteLine("The goals are:");
             ListGoals(goals);
-
         }
         else if (answer == 3)
         {
             Console.Write("What is the file name for the file? Please include .txt ");
             string filename = Console.ReadLine();
-            Goal.SaveGoalsToFile(filename, _points);
+            Goal.SaveGoalsToFile(filename, _points, goals);
 
-            Console.WriteLine("FOR DEBUG");
-            foreach (var goal in goals)
-            {
-                Console.WriteLine(goal.ToSaveString());
-            }
+            // Console.WriteLine("FOR DEBUG");
+            // foreach (var goal in goals)
+            // {
+            //     Console.WriteLine(goal.ToSaveString());
+            // }
         }
         else if (answer == 4)
         {
-           // asdf
+            Console.Write("Enter the filename to load goals from: ");
+             string filename = Console.ReadLine();
+            var result = Goal.LoadGoalsFromFile(filename);
+            goals = result.Goals;
+            _points = result.TotalPoints;
         }
         else if (answer == 5)
         {
-             Console.WriteLine("The goals are:");
+             // Console.WriteLine("The goals are:");
                 ListGoals(goals);
                 Console.Write("Which goal did you complete? ");
                 int compGoal = int.Parse(Console.ReadLine());

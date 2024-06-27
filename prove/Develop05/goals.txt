@@ -1,1 +1,2 @@
-Points: 0
+Points: 100
+Simple Goal: 7 Habits, read the book, 100 points, True
