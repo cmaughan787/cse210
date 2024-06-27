@@ -4,6 +4,24 @@ class Checklist : Goal
     private int _bonus;
     private int _current;
 
+        public int Current
+    {
+        get => _current;
+        set => _current = value;
+    }
+
+    public int Count
+    {
+        get => _count;
+        set => _count = value;
+    }
+
+    public int Bonus
+    {
+        get => _bonus;
+        set => _bonus = value;
+    }
+
     public Checklist(string _description, int _points, string _title) : base(_description, _points, _title)
     {
         // Initialize additional fields specific to Eternal goals if needed
@@ -42,7 +60,7 @@ class Checklist : Goal
 
         public override void DisplayGoals()
         {
-            if (_current == _count)
+            if (_current >= _count)
                 Console.WriteLine($"[X] {_title}, ({_description}) -- Completed {_current}/{_count}");
             else
             {
@@ -52,7 +70,7 @@ class Checklist : Goal
 
         public override string ToSaveString()
     {
-        return $"Checklist Goal: {_title}, {_description}, {_points} points, {_current}/{_count} times completed";
+        return $"Checklist Goal: {_title}, {_description}, {_points} points, {_current}/{_count} times completed, {_bonus} bonus points";
     }
 
         public override string ToString()

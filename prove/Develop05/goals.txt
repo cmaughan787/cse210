@@ -1,2 +1,4 @@
-Points: 100
-Simple Goal: 7 Habits, read the book, 100 points, True
+Points: 0
+Simple Goal: 7 habits, read, 50 points, False
+Eternal Goal: temple, weekly, 80 points
+Checklist Goal: BoM, read daily, 75 points, 0/7 times completed, 150 bonus points

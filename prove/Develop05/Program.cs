@@ -11,6 +11,27 @@ class Program
             goals[i].DisplayGoals();
         }
     }
+
+          public static void Animation()
+    {
+           int x = 0;
+    while (x != 2)
+    {
+            Console.Write("-"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("\\"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("|"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            Console.Write("/"); // Replace it with the - character
+            Thread.Sleep(500);
+            Console.Write("\b \b"); // Erase the + character
+            x += 1;
+    }
+    }
     static void Main(string[] args)
     {
          int end = 0;
@@ -21,7 +42,7 @@ class Program
     while (end != 1)
     {
         // Goal menu = new Goal (title, _points, description); //Create inside the Sub menu!!!
-        Console.WriteLine($"You have {_points} points");
+        Console.WriteLine($"\n You have {_points} points");
         Console.WriteLine("");
         Console.WriteLine("Menu Options:");
         Console.WriteLine("1. Create New Goal");
@@ -49,7 +70,8 @@ class Program
             Console.Write("What is the file name for the file? Please include .txt ");
             string filename = Console.ReadLine();
             Goal.SaveGoalsToFile(filename, _points, goals);
-
+            Console.Write("Saving...");
+            Animation();
             // Console.WriteLine("FOR DEBUG");
             // foreach (var goal in goals)
             // {
@@ -59,14 +81,15 @@ class Program
         else if (answer == 4)
         {
             Console.Write("Enter the filename to load goals from: ");
-             string filename = Console.ReadLine();
+            string filename = Console.ReadLine();
             var result = Goal.LoadGoalsFromFile(filename);
             goals = result.Goals;
             _points = result.TotalPoints;
+            Console.Write("Loading goals...");
+            Animation();
         }
         else if (answer == 5)
         {
-             // Console.WriteLine("The goals are:");
                 ListGoals(goals);
                 Console.Write("Which goal did you complete? ");
                 int compGoal = int.Parse(Console.ReadLine());

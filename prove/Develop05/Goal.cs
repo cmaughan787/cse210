@@ -118,6 +118,7 @@ public abstract class Goal
 
                 if (goalType == "Simple Goal")
                 {
+                    bool _complete = bool.Parse(parts[3]);
                     Simple simpleGoal = new Simple(title, points, description);
                     loadedGoals.Add(simpleGoal);
                 }
@@ -127,15 +128,22 @@ public abstract class Goal
                     loadedGoals.Add(eternalGoal);
                 }
                 else if (goalType == "Checklist Goal")
+            {
+                string[] progressParts = parts[3].Split('/');
+                int current = int.Parse(progressParts[0]);
+                int count = int.Parse(progressParts[1].Split(' ')[0]);
+                int bonus = int.Parse(parts[4].Split(' ')[0]);
+
+                Checklist checklistGoal = new Checklist(title, points, description)
                 {
-                    int count = int.Parse(parts[3].Split(" ")[0]);
-                    Checklist checklistGoal = new Checklist(title, points, description);
-                    //checklistGoal.SetCount(count);
-                    loadedGoals.Add(checklistGoal);
-                }
+                    Current = current,
+                    Count = count,
+                    Bonus = bonus
+                };
+                loadedGoals.Add(checklistGoal);
+            }
             }
         }
-
         return new LoadResult
         {
             Goals = loadedGoals,
@@ -143,16 +151,6 @@ public abstract class Goal
         };
     }
 
-    // public static void DisplayGoals(List<Goal> goals)
-    // {
-    //     foreach (var goal in goals)
-    //     {
-    //         Console.WriteLine($"[ ] {goal}");
-    //     }
-    // }
 
-    
-        // return $"{_title} ({_description})";
-    
 
 }
