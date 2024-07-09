@@ -1,38 +1,34 @@
-
 public class Event : Add
 {
-    private DateTime _startDate;
-    private DateTime _endDate;
+    private Date _startDate;
+    private Date _endDate;
+    private int _eventID;
 
-    public Event(string title, DateTime startDate, DateTime endDate, string description)
-        : base(title, description)
+    public Event(string title, string description, Date date, Date startDate, Date endDate, int eventID) 
+        : base(title, description, date)
     {
         _startDate = startDate;
         _endDate = endDate;
+        _eventID = eventID;
     }
 
-    public void DisplayEvent()
+    public void Create()
     {
-        Console.WriteLine($"Title: {_title}");
-        Console.WriteLine($"Start Date: {_startDate.ToString("yyyy-MM-dd HH:mm:ss")}");
-        Console.WriteLine($"End Date: {_endDate.ToString("yyyy-MM-dd HH:mm:ss")}");
-        Console.WriteLine($"Description: {_description}");
+        // Method implementation here
     }
 
-    public static Event AddEvent()
+    public void Update()
     {
-        Console.Write("Enter the title: ");
-        string title = Console.ReadLine();
+        // Method implementation here
+    }
 
-        Console.Write("Enter the description: ");
-        string description = Console.ReadLine();
+    public void Delete()
+    {
+        // Method implementation here
+    }
 
-        Console.Write("Enter the start date (yyyy-MM-dd HH:mm:ss): ");
-        DateTime startDate = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd HH:mm:ss", null);
-
-        Console.Write("Enter the end date (yyyy-MM-dd HH:mm:ss): ");
-        DateTime endDate = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd HH:mm:ss", null);
-
-        return new Event(title, startDate, endDate, description);
+    public void Display()
+    {
+        // Method implementation here
     }
 }
