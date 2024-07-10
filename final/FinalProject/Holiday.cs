@@ -1,17 +1,17 @@
 public class Holiday : Add
 {
-    private DateTime _date;
+    private DateTime _holidayDate;
 
-    public Holiday(string title, DateTime date, string description)
-        : base(title, description)
+    public Holiday(string title, DateTime holidayDate, string description, Date date)
+        : base(title, description, date)
     {
-        _date = date;
+        _holidayDate = holidayDate;
     }
 
     public void DisplayHoliday()
     {
         Console.WriteLine($"Title: {_title}");
-        Console.WriteLine($"Date: {_date.ToString("yyyy-MM-dd HH:mm:ss")}");
+        Console.WriteLine($"Date: {_holidayDate.ToString("yyyy-MM-dd HH:mm:ss")}");
         Console.WriteLine($"Description: {_description}");
     }
 
@@ -24,8 +24,11 @@ public class Holiday : Add
         string description = Console.ReadLine();
 
         Console.Write("Enter the date (yyyy-MM-dd HH:mm:ss): ");
-        DateTime date = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd HH:mm:ss", null);
+        DateTime holidayDate = DateTime.ParseExact(Console.ReadLine(), "yyyy-MM-dd HH:mm:ss", null);
 
-        return new Holiday(title, date, description);
+        // Create a Date object from holidayDate
+        Date date = new Date(holidayDate.Year, holidayDate.Month, holidayDate.Day);
+
+        return new Holiday(title, holidayDate, description, date);
     }
 }
