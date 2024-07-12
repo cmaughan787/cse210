@@ -24,10 +24,12 @@ public void DisplayCalendar()
                 e.Display();  // Assuming Event class has a Display method
                 Console.WriteLine();  // For separation between events
             }
+            Console.WriteLine("\n");
         }
         else
         {
-            Console.WriteLine("No events scheduled.");
+            Console.WriteLine("No events scheduled.\n");
+            Console.WriteLine("\n");
         }
 
         // Display Reminders
@@ -38,11 +40,13 @@ public void DisplayCalendar()
             {
                 r.Display();  // Assuming Reminder class has a Display method
                 Console.WriteLine();  // For separation between reminders
+                Console.WriteLine("\n");
             }
         }
         else
         {
-            Console.WriteLine("No reminders set.");
+            Console.WriteLine("No reminders set.\n");
+            Console.WriteLine("\n");
         }
     }
 
@@ -92,4 +96,39 @@ public void RemoveEvent(int eventID)
         Console.WriteLine("Reminder not found in calendar.");
     }
 }
+
+        public void DisplayReminders()
+        {
+
+        Console.WriteLine("Reminders:");
+        if (_reminders.Count > 0)
+        {
+            foreach (var r in _reminders)
+            {
+                r.Display();  // Assuming Reminder class has a Display method
+                Console.WriteLine();  // For separation between reminders
+            }
+        }
+        else
+        {
+            Console.WriteLine("No reminders set.");
+        }
+    }
+    public void DisplayEvents()
+    {
+                Console.WriteLine("Events:");
+        if (_events.Count > 0)
+        {
+            foreach (var e in _events)
+            {
+                e.Display();  // Assuming Event class has a Display method
+                Console.WriteLine();  // For separation between events
+            }
+        }
+        else
+        {
+            Console.WriteLine("No events scheduled.");
+        }
+    }
+
 }

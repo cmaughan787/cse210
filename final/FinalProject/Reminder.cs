@@ -134,7 +134,7 @@ public void Update()
 
     public void Display()
     {
-        Console.WriteLine("Display Reminder");
+    Console.WriteLine("Display Reminder");
     base.Display();
     Console.WriteLine($"Title: {_title}");
     Console.WriteLine($"Description: {_description}");

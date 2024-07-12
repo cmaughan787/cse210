@@ -22,7 +22,7 @@ class Program
 
         while (end != 1)
         {
-            Console.WriteLine("Menu Options:");
+            Console.WriteLine("\n\nMenu Options:");
             Console.WriteLine("1. View Calendar");
             Console.WriteLine("2. View Reminders");
             Console.WriteLine("3. View Events");
@@ -33,6 +33,7 @@ class Program
             Console.WriteLine("8. Quit.");
             Console.Write("Select a choice from the menu: ");
             int answer;
+            Calendar calendar = new Calendar();
             if (int.TryParse(Console.ReadLine(), out answer))
             {
                 Console.WriteLine("");
@@ -41,16 +42,17 @@ class Program
                 {
                     case 1:
                         // Code to view calendar
-                        Calendar calendar = new Calendar();
+                        
                         calendar.DisplayCalendar();
                         break;
 
                     case 2:
-                        reminder.Display();
+                        calendar.DisplayReminders();
                         break;
 
                     case 3:
-                        eventObj.Display();
+
+                        calendar.DisplayEvents();
                         break;
 
                     case 4:
@@ -93,7 +95,7 @@ class Program
 
         while (subChoice != 4)
         {
-            Console.WriteLine("Select from the following options:");
+            Console.WriteLine("\n\nSelect from the following options:");
             Console.WriteLine("1. Create Reminder");
             Console.WriteLine("2. Update Reminder");
             Console.WriteLine("3. Delete Reminder");
@@ -140,7 +142,7 @@ class Program
 
         while (subChoice != 4)
         {
-            Console.WriteLine("Select from the following options:");
+            Console.WriteLine("\n\nSelect from the following options:");
             Console.WriteLine("1. Create Event");
             Console.WriteLine("2. Update Event");
             Console.WriteLine("3. Delete Event");

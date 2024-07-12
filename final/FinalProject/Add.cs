@@ -13,26 +13,26 @@ public class Add
 
     public void Display()
     {
-        // Method implementation here
+        // abstract method
     }
 
     public void Create()
     {
-        // Method implementation here
+        // abstract method
     }
 
     public void Delete()
     {
-        // Method implementation here
+        // abstract method
     }
 
     public void Update()
     {
-        // Method implementation here
+        // abstract method
     }
 
     public void AddItem(string title, string description, Date date)
     {
-        // Method implementation here
+        // abstract method
     }
 }
