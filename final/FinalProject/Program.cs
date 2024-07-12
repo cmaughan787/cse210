@@ -3,12 +3,13 @@ class Program
     static void Main(string[] args)
     {
         int end = 0;
+        Console.Clear();
         Console.WriteLine("Welcome to your calendar!");
         
         // Initialize dummy data for demonstration
         DateTime reminderDateTime = DateTime.ParseExact("2024-07-15 14:30:00", "yyyy-MM-dd HH:mm:ss", null);
         Date reminderDate = new Date(reminderDateTime.Year, reminderDateTime.Month, reminderDateTime.Day);
-        Reminder reminder = new Reminder("Meeting", "Team meeting", reminderDate);
+        Reminder reminder = new Reminder("Meeting", "Team meeting", reminderDate, 102);
         
         // Dummy dates for the event
         DateTime startDateTime = DateTime.ParseExact("2024-07-15 09:00:00", "yyyy-MM-dd HH:mm:ss", null);
@@ -17,7 +18,7 @@ class Program
         Date startDate = new Date(startDateTime.Year, startDateTime.Month, startDateTime.Day);
         Date endDate = new Date(endDateTime.Year, endDateTime.Month, endDateTime.Day);
         Event eventObj = new Event("Conference", "Tech conference", eventDate, startDate, endDate, 101);
-        Settings settings = new Settings();
+        Why settings = new Why();
 
         while (end != 1)
         {
@@ -28,7 +29,7 @@ class Program
             Console.WriteLine("4. Edit Reminders");
             Console.WriteLine("5. Edit Events");
             Console.WriteLine("6. Daily Plan");
-            Console.WriteLine("7. Access Settings");
+            Console.WriteLine("7. Why should I use a calander?");
             Console.WriteLine("8. Quit.");
             Console.Write("Select a choice from the menu: ");
             int answer;
@@ -66,7 +67,7 @@ class Program
                         break;
 
                     case 7:
-                        settings.ChangeSettings();
+                        settings.WhyaCal();
                         break;
 
                     case 8:

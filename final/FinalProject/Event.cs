@@ -1,8 +1,8 @@
 public class Event : Add
 {
-    private Date _startDate;
+    private Date _startDate; 
     private Date _endDate;
-    private int _eventID;
+    public int _eventID;
 
     public Event(string title, string description, Date date, Date startDate, Date endDate, int eventID) 
         : base(title, description, date)
@@ -86,14 +86,25 @@ public class Event : Add
 
     public void Delete()
     {
-        // Deleting is simulated here by clearing the values
-        _title = null;
-        _description = null;
-        _startDate = null;
-        _endDate = null;
-        _eventID = 0;
-
-        Console.WriteLine("Event deleted successfully.");
+        Console.Write("Enter Event ID to delete: ");
+    string input = Console.ReadLine();
+    if (int.TryParse(input, out int eventID))
+    {
+        if (input != null)
+        {
+            Calendar calender = new Calendar();
+            calender.RemoveEvent(eventID);
+            Console.WriteLine("Event removed from calendar.");
+        }
+        else
+        {
+            Console.WriteLine("Event not found in calendar.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer.");
+    }
     }
 
     public void Display()

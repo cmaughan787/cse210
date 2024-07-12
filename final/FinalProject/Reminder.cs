@@ -1,11 +1,12 @@
 public class Reminder : Add
 {
-    // private int _reminderID;
+    public int _reminderID;
 
-    public Reminder(string title, string description, Date date)
+
+    public Reminder(string title, string description, Date date, int reminderID)
         : base(title, description, date)
     {
-      //  _reminderID = reminderID;
+      _reminderID = reminderID;
     }
 
     public void Create()
@@ -19,6 +20,17 @@ public class Reminder : Add
         Console.Write("Enter the date (yyyy-MM-dd): ");
         string dateInput = Console.ReadLine();
 
+        Console.Write("Enter unique reminder ID: ");
+        int reminderID;
+        if (int.TryParse(Console.ReadLine(), out reminderID))
+        {
+            // Successfully parsed _reminderID
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a valid integer.");
+        }
+
         if (DateTime.TryParseExact(dateInput, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime parsedDate))
         {
             Date date = new Date(parsedDate.Year, parsedDate.Month, parsedDate.Day);
@@ -27,8 +39,12 @@ public class Reminder : Add
             _title = title;
             _description = description;
             _date = date;
+            _reminderID = reminderID;
 
             Console.WriteLine("Reminder created successfully.");
+            Calendar calender = new Calendar();
+            Reminder newReminder = new Reminder(_title, _description, _date, _reminderID);
+            calender.AddReminder(newReminder);
         }
         else
         {
@@ -36,20 +52,94 @@ public class Reminder : Add
         }
     }
 
-    public void Update()
+public void Update()
     {
         Console.WriteLine("Update Reminder");
+
+        Console.Write("Update title (leave empty to keep current): ");
+        string newTitle = Console.ReadLine();
+        if (!string.IsNullOrEmpty(newTitle))
+        {
+            _title = newTitle;
+        }
+
+        Console.Write("Update description (leave empty to keep current): ");
+        string newDescription = Console.ReadLine();
+        if (!string.IsNullOrEmpty(newDescription))
+        {
+            _description = newDescription;
+        }
+
+        Console.Write("Update the date (yyyy-MM-dd, leave empty to keep current): ");
+        string newDateInput = Console.ReadLine();
+        if (!string.IsNullOrEmpty(newDateInput))
+        {
+            if (DateTime.TryParseExact(newDateInput, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime newParsedDate))
+            {
+                _date = new Date(newParsedDate.Year, newParsedDate.Month, newParsedDate.Day);
+            }
+            else
+            {
+                Console.WriteLine("Invalid date format. Date not updated.");
+            }
+        }
+
+        Console.WriteLine("Reminder updated successfully.");
     }
+
+    // public void Delete()
+    // {
+    //     Display();
+    //     Console.Write("Please select a reminder");
+    //     Console.Read();
+
+    //     Console.WriteLine("Delete Reminder");
+    //     Console.Write("Are you sure you want to delete this reminder? (yes/no): ");
+    //     string confirmation = Console.ReadLine();
+
+    //     if (confirmation.ToLower() == "yes")
+    //     {
+    //         Calendar calender = new Calendar();
+    //         calender.RemoveReminder(newReminder);
+    //         Console.WriteLine("Reminder deleted successfully.");
+    //     }
+    //     else
+    //     {
+    //         Console.WriteLine("Reminder not deleted.");
+    //     }
+    // }
 
     public void Delete()
     {
-        Console.WriteLine("Delete Reminder");
+        Console.Write("Enter Reminder ID to delete: ");
+    string input = Console.ReadLine();
+    if (int.TryParse(input, out int reminderID))
+    {
+        if (input != null)
+        {
+            Calendar calender = new Calendar();
+            calender.RemoveEvent(reminderID);
+            Console.WriteLine("Reminder removed from calendar.");
+        }
+        else
+        {
+            Console.WriteLine("Reminder not found in calendar.");
+        }
+    }
+    else
+    {
+        Console.WriteLine("Invalid input. Please enter a valid integer.");
+    }
     }
 
     public void Display()
     {
         Console.WriteLine("Display Reminder");
-        base.Display();
-       // Console.WriteLine($"Reminder ID: {_reminderID}");
+    base.Display();
+    Console.WriteLine($"Title: {_title}");
+    Console.WriteLine($"Description: {_description}");
+    Console.WriteLine($"Date: {_date}");
+    // Console.WriteLine($"Reminder ID: {_reminderID}");
     }
+    
 }
