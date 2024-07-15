@@ -6,7 +6,7 @@ class Program
         Console.Clear();
         Console.WriteLine("Welcome to your calendar!");
 
-
+        Calendar calendar = new Calendar();
         
         // Initialize dummy data for demonstration
         DateTime reminderDateTime = DateTime.ParseExact("2024-07-15 14:30:00", "yyyy-MM-dd HH:mm:ss", null);
@@ -35,7 +35,7 @@ class Program
             Console.WriteLine("8. Quit.");
             Console.Write("Select a choice from the menu: ");
             int answer;
-            Calendar calendar = new Calendar();
+            
             if (int.TryParse(Console.ReadLine(), out answer))
             {
                 Console.WriteLine("");
