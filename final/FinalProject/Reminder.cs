@@ -9,7 +9,7 @@ public class Reminder : Add
       _reminderID = reminderID;
     }
 
-    public void Create()
+    public void Create(Calendar calendar)
     {
         Console.Write("Name Reminder: ");
         string title = Console.ReadLine();
@@ -42,9 +42,8 @@ public class Reminder : Add
             _reminderID = reminderID;
 
             Console.WriteLine("Reminder created successfully.");
-            Calendar calender = new Calendar();
             Reminder newReminder = new Reminder(_title, _description, _date, _reminderID);
-            calender.AddReminder(newReminder);
+            calendar.AddReminder(newReminder);
         }
         else
         {
@@ -83,7 +82,7 @@ public void Update()
                 Console.WriteLine("Invalid date format. Date not updated.");
             }
         }
-
+        
         Console.WriteLine("Reminder updated successfully.");
     }
 
@@ -109,7 +108,7 @@ public void Update()
     //     }
     // }
 
-    public void Delete()
+    public void Delete(Calendar calendar)
     {
         Console.Write("Enter Reminder ID to delete: ");
     string input = Console.ReadLine();
@@ -117,8 +116,7 @@ public void Update()
     {
         if (input != null)
         {
-            Calendar calender = new Calendar();
-            calender.RemoveEvent(reminderID);
+            calendar.RemoveEvent(reminderID);
             Console.WriteLine("Reminder removed from calendar.");
         }
         else

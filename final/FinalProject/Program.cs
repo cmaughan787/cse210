@@ -5,6 +5,8 @@ class Program
         int end = 0;
         Console.Clear();
         Console.WriteLine("Welcome to your calendar!");
+
+
         
         // Initialize dummy data for demonstration
         DateTime reminderDateTime = DateTime.ParseExact("2024-07-15 14:30:00", "yyyy-MM-dd HH:mm:ss", null);
@@ -22,7 +24,7 @@ class Program
 
         while (end != 1)
         {
-            Console.WriteLine("\n\nMenu Options:");
+            Console.WriteLine("\nMenu Options:");
             Console.WriteLine("1. View Calendar");
             Console.WriteLine("2. View Reminders");
             Console.WriteLine("3. View Events");
@@ -56,11 +58,11 @@ class Program
                         break;
 
                     case 4:
-                        EditReminderMenu(reminder);
+                        EditReminderMenu(reminder, calendar);
                         break;
 
                     case 5:
-                        EditEventMenu(eventObj);
+                        EditEventMenu(eventObj, calendar);
                         break;
 
                     case 6:
@@ -89,7 +91,7 @@ class Program
         }
     }
 
-    private static void EditReminderMenu(Reminder reminder)
+    private static void EditReminderMenu(Reminder reminder, Calendar calendar)
     {
         int subChoice = 0;
 
@@ -136,7 +138,7 @@ class Program
     }
 
 
-    private static void EditEventMenu(Event eventObj)
+    private static void EditEventMenu(Event eventObj, Calendar calendar)
     {
         int subChoice = 0;
 
