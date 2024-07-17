@@ -9,8 +9,9 @@ public class Reminder : Add
       _reminderID = reminderID;
     }
 
-    public void Create(Calendar calendar)
+    public override void Create(Calendar calender)
     {
+        
         Console.Write("Name Reminder: ");
         string title = Console.ReadLine();
 
@@ -43,7 +44,7 @@ public class Reminder : Add
 
             Console.WriteLine("Reminder created successfully.");
             Reminder newReminder = new Reminder(_title, _description, _date, _reminderID);
-            calendar.AddReminder(newReminder);
+            calender.AddReminder(newReminder);
         }
         else
         {
@@ -130,10 +131,10 @@ public void Update()
     }
     }
 
-    public void Display()
+    public override void Display()
     {
     Console.WriteLine("Display Reminder");
-    base.Display();
+    // base.Display();
     Console.WriteLine($"Title: {_title}");
     Console.WriteLine($"Description: {_description}");
     Console.WriteLine($"Date: {_date}");

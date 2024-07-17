@@ -30,9 +30,10 @@ class Program
             Console.WriteLine("3. View Events");
             Console.WriteLine("4. Edit Reminders");
             Console.WriteLine("5. Edit Events");
-            Console.WriteLine("6. Daily Plan");
-            Console.WriteLine("7. Why should I use a calander?");
-            Console.WriteLine("8. Quit.");
+            Console.WriteLine("6. Edit Holidays");
+            Console.WriteLine("7. Daily Plan");
+            Console.WriteLine("8. Why should I use a calander?");
+            Console.WriteLine("9. Quit.");
             Console.Write("Select a choice from the menu: ");
             int answer;
             
@@ -43,7 +44,6 @@ class Program
                 switch (answer)
                 {
                     case 1:
-                        // Code to view calendar
                         
                         calendar.DisplayCalendar();
                         break;
@@ -65,16 +65,22 @@ class Program
                         EditEventMenu(eventObj, calendar);
                         break;
 
+                    
                     case 6:
+                        // Daily Plan
+                        
+                        break;
+
+                    case 7:
                         // Daily Plan
                         Console.WriteLine("Daily Plan.");
                         break;
 
-                    case 7:
+                    case 8:
                         settings.WhyaCal();
                         break;
 
-                    case 8:
+                    case 9:
                         Console.WriteLine("Have a good day!");
                         end = 1;
                         break;
@@ -109,7 +115,7 @@ class Program
                 switch (subChoice)
                 {
                     case 1:
-                        reminder.Create();
+                        reminder.Create(calendar);
                         break;
 
                     case 2:
@@ -156,7 +162,7 @@ class Program
                 switch (subChoice)
                 {
                     case 1:
-                        eventObj.Create();
+                        eventObj.Create(calendar);
                         break;
 
                     case 2:
@@ -168,6 +174,47 @@ class Program
                         break;
 
                     case 4:
+                        // Exit mini-menu and return to main menu
+                        Console.WriteLine("Returning to main menu...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+    }
+
+     private static void EditHolidayMenu(Holiday holiday, Calendar calendar)
+    {
+        int subChoice = 0;
+
+        while (subChoice != 4)
+        {
+            Console.WriteLine("\n\nSelect from the following options:");
+            Console.WriteLine("1. Create Holiday");
+            Console.WriteLine("2. Delete Holiday");
+            Console.WriteLine("3. Back to Main Menu");
+            Console.Write("Enter your choice: ");
+
+            if (int.TryParse(Console.ReadLine(), out subChoice))
+            {
+                switch (subChoice)
+                {
+                    case 1:
+                        holiday.Create(calendar);
+                        break;
+
+                    case 2:
+                        holiday.Delete();
+                        break;
+
+                    case 3:
                         // Exit mini-menu and return to main menu
                         Console.WriteLine("Returning to main menu...");
                         break;

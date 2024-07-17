@@ -8,14 +8,15 @@ public class Holiday : Add
         _holidayDate = holidayDate;
     }
 
-    public void DisplayHoliday()
+
+    public override void Display()
     {
         Console.WriteLine($"Title: {_title}");
         Console.WriteLine($"Date: {_holidayDate.ToString("yyyy-MM-dd HH:mm:ss")}");
         Console.WriteLine($"Description: {_description}");
     }
 
-    public static Holiday AddHoliday()
+    public override void Create(Calendar calendar)
     {
         Console.Write("Enter the title: ");
         string title = Console.ReadLine();
@@ -29,6 +30,7 @@ public class Holiday : Add
         // Create a Date object from holidayDate
         Date date = new Date(holidayDate.Year, holidayDate.Month, holidayDate.Day);
 
-        return new Holiday(title, holidayDate, description, date);
+        Holiday holiday = new Holiday(title, holidayDate, description, date);
+        calendar.AddHoliday(holiday);
     }
 }

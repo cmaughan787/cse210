@@ -4,11 +4,13 @@ public class Calendar
     private Date _currentDate;
     private List<Event> _events;
     private List<Reminder> _reminders;
+    private List<Holiday> _holiday;
 
     public Calendar()
     {
         _events = new List<Event>();
         _reminders = new List<Reminder>();
+        _holiday = new List<Holiday>();
     }
 
 public void DisplayCalendar()
@@ -48,6 +50,23 @@ public void DisplayCalendar()
             Console.WriteLine("No reminders set.\n");
             Console.WriteLine("\n");
         }
+    
+
+         Console.WriteLine("Holidays:");
+        if (_holiday.Count > 0)
+        {
+            foreach (var h in _holiday)
+            {
+                h.Display(); 
+                Console.WriteLine();  
+                Console.WriteLine("\n");
+            }
+        }
+        else
+        {
+            Console.WriteLine("No holidays in calander.\n");
+            Console.WriteLine("\n");
+        }
     }
 
     public void AddEvent(Event eventObj)
@@ -60,6 +79,12 @@ public void DisplayCalendar()
     {
         _reminders.Add(reminder);
         Console.WriteLine("Reminder added to calendar");
+    }
+
+    public void AddHoliday(Holiday holiday)
+    {
+        _holiday.Add(holiday);
+        Console.WriteLine("Holiday added to calendar");
     }
 
     // REMOVE 

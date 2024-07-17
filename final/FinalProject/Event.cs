@@ -12,7 +12,7 @@ public class Event : Add
         _eventID = eventID;
     }
 
-        public void Create()
+        public override void Create(Calendar calendar)
     {
         Console.Write("Enter Title: ");
         string title = Console.ReadLine();
@@ -43,10 +43,10 @@ public class Event : Add
             _endDate = endDate;
             _eventID = eventID;
 
-            Calendar calender = new Calendar();
+            //Calendar calender = new Calendar();
             Event newEvent = new Event(title, description, startDate, startDate, endDate, eventID);
             // Add the event to the calendar
-            calender.AddEvent(newEvent);
+            calendar.AddEvent(newEvent);
 
             Console.WriteLine("Event created successfully.");
         }
@@ -107,7 +107,7 @@ public class Event : Add
     }
     }
 
-    public void Display()
+    public override void Display()
     {
         Console.WriteLine("Event Details:");
         Console.WriteLine($"Title: {_title}");
