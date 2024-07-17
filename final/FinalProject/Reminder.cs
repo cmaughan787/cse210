@@ -52,7 +52,7 @@ public class Reminder : Add
         }
     }
 
-public void Update()
+public override void Update()
     {
         Console.WriteLine("Update Reminder");
 

@@ -20,10 +20,7 @@ public abstract class Add
         // abstract method
     }
 
-    public void Update()
-    {
-        // abstract method
-    }
+    public abstract void Update();
 
     public void AddItem(string title, string description, Date date)
     {

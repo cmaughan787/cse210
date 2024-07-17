@@ -102,11 +102,6 @@ public void RemoveEvent(int eventID)
     }
 }
 
-    // public void RemoveReminder(Reminder reminder)
-    // {
-    //     _reminders.Remove(reminder);
-    //     Console.WriteLine("Reminder added to calendar");
-    // }
 
     public void RemoveReminder(int reminderID)
 {
@@ -130,8 +125,8 @@ public void RemoveEvent(int eventID)
         {
             foreach (var r in _reminders)
             {
-                r.Display();  // Assuming Reminder class has a Display method
-                Console.WriteLine();  // For separation between reminders
+                r.Display();  
+                Console.WriteLine(); 
             }
         }
         else
@@ -146,14 +141,41 @@ public void RemoveEvent(int eventID)
         {
             foreach (var e in _events)
             {
-                e.Display();  // Assuming Event class has a Display method
-                Console.WriteLine();  // For separation between events
+                e.Display(); 
+                Console.WriteLine();  
             }
         }
         else
         {
             Console.WriteLine("No events scheduled.");
         }
+    }
+
+        public void DisplayHoliday()
+    {
+                Console.WriteLine("Holidays:");
+        if (_holiday.Count > 0)
+        {
+            foreach (var h in _holiday)
+            {
+                h.Display(); 
+                Console.WriteLine();
+            }
+        }
+        else
+        {
+            Console.WriteLine("No holidays in calendar.");
+        }
+    }
+
+    public void UpdateEvent(int eventID)
+    {
+        
+    }
+
+    public void UpdateReminder(int reminderID)
+    {
+
     }
 
 }

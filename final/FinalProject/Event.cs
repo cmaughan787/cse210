@@ -56,7 +56,7 @@ public class Event : Add
         }
     }
 
-    public void Update()
+    public override void Update()
     {
         Console.Write("Update Title: ");
         _title = Console.ReadLine();
