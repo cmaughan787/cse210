@@ -119,6 +119,7 @@ class Program
                         break;
 
                     case 2:
+                        calendar.DisplayReminders();
                         reminder.Update();
                         break;
 

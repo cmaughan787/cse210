@@ -170,12 +170,21 @@ public void RemoveEvent(int eventID)
 
     public void UpdateEvent(int eventID)
     {
-        
+
     }
 
     public void UpdateReminder(int reminderID)
     {
-
+        Reminder reminderToUpdate = _reminders.FirstOrDefault(r => r._reminderID == reminderID);
+    if (reminderToUpdate != null)
+    {
+        reminderToUpdate.Update();
+        Console.WriteLine("Reminder updated successfully.");
+    }
+    else
+    {
+        Console.WriteLine("Reminder not found.");
+    }
     }
 
 }

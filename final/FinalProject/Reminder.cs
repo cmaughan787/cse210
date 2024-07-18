@@ -55,6 +55,11 @@ public class Reminder : Add
 public override void Update()
     {
         Console.WriteLine("Update Reminder");
+        Calendar calendar = new Calendar();
+        calendar.DisplayReminders();
+
+        Console.Write("Please enter ID number or reminder to update: ");
+        int upid = int.Parse(Console.ReadLine());
 
         Console.Write("Update title (leave empty to keep current): ");
         string newTitle = Console.ReadLine();
@@ -83,7 +88,7 @@ public override void Update()
                 Console.WriteLine("Invalid date format. Date not updated.");
             }
         }
-        
+        Reminder updateReminder = new Reminder(newTitle, newDescription, _date, _reminderID);
         Console.WriteLine("Reminder updated successfully.");
     }
 
