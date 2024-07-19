@@ -1,8 +1,8 @@
 public abstract class Add
 {
-    public string _title;
-    public string _description;
-    public Date _date;
+    protected string _title;
+    protected string _description;
+    protected Date _date;
 
     public Add(string title, string description, Date date)
     {
