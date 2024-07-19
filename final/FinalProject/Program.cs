@@ -120,11 +120,11 @@ class Program
 
                     case 2:
                         calendar.DisplayReminders();
-                        reminder.Update();
+                        reminder.GetUpdatedData();
                         break;
 
                     case 3:
-                        reminder.Delete();
+                        reminder.Delete(calendar);
                         break;
 
                     case 4:
@@ -171,7 +171,7 @@ class Program
                         break;
 
                     case 3:
-                        eventObj.Delete();
+                        eventObj.Delete(calendar);
                         break;
 
                     case 4:
@@ -212,7 +212,7 @@ class Program
                         break;
 
                     case 2:
-                        holiday.Delete();
+                        holiday.Delete(calendar);
                         break;
 
                     case 3:

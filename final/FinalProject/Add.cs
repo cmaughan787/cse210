@@ -1,8 +1,8 @@
 public abstract class Add
 {
-    protected string _title;
-    protected string _description;
-    protected Date _date;
+    public string _title;
+    public string _description;
+    public Date _date;
 
     public Add(string title, string description, Date date)
     {
@@ -15,10 +15,7 @@ public abstract class Add
 
     public abstract void Create(Calendar calender);
 
-    public void Delete()
-    {
-        // abstract method
-    }
+    public abstract void Delete(Calendar calendar);
 
     public abstract void Update();
 

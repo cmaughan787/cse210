@@ -36,4 +36,9 @@ public class Holiday : Add
         Holiday holiday = new Holiday(title, holidayDate, description, date);
         calendar.AddHoliday(holiday);
     }
+
+    public override void Delete(Calendar calendar)
+    {
+        //
+    }
 }

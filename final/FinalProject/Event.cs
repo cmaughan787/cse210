@@ -84,7 +84,7 @@ public class Event : Add
         }
     }
 
-    public void Delete()
+    public override void Delete(Calendar calendar)
     {
         Console.Write("Enter Event ID to delete: ");
     string input = Console.ReadLine();
