@@ -17,7 +17,7 @@ public abstract class Add
 
     public abstract void Delete(Calendar calendar);
 
-    public abstract void Update();
+
 
     public void AddItem(string title, string description, Date date)
     {

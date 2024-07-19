@@ -21,8 +21,11 @@ class Program
         Date endDate = new Date(endDateTime.Year, endDateTime.Month, endDateTime.Day);
         Event eventObj = new Event("Conference", "Tech conference", eventDate, startDate, endDate, 101);
         Why settings = new Why();
-
-        while (end != 1)
+        DateTime holidayDate = DateTime.ParseExact("2024-07-15 09:00:00", "yyyy-MM-dd HH:mm:ss", null);
+        Holiday holiday = new Holiday("Birthday", holidayDate, "Friend's birthday", new Date(holidayDate.Year, holidayDate.Month, holidayDate.Day));
+        DailyPlan plan = new DailyPlan();
+       
+       while (end != 1)
         {
             Console.WriteLine("\nMenu Options:");
             Console.WriteLine("1. View Calendar");
@@ -67,13 +70,13 @@ class Program
 
                     
                     case 6:
-                        // Daily Plan
+                        EditHolidayMenu(holiday, calendar);
                         
                         break;
 
                     case 7:
                         // Daily Plan
-                        Console.WriteLine("Daily Plan.");
+                        DailyPlan(plan);
                         break;
 
                     case 8:
@@ -101,13 +104,12 @@ class Program
     {
         int subChoice = 0;
 
-        while (subChoice != 4)
+        while (subChoice != 3)
         {
             Console.WriteLine("\n\nSelect from the following options:");
             Console.WriteLine("1. Create Reminder");
-            Console.WriteLine("2. Update Reminder");
-            Console.WriteLine("3. Delete Reminder");
-            Console.WriteLine("4. Back to Main Menu");
+            Console.WriteLine("2. Delete Reminder");
+            Console.WriteLine("3. Back to Main Menu");
             Console.Write("Enter your choice: ");
             
             if (int.TryParse(Console.ReadLine(), out subChoice))
@@ -119,15 +121,10 @@ class Program
                         break;
 
                     case 2:
-                        calendar.DisplayReminders();
-                        reminder.GetUpdatedData();
-                        break;
-
-                    case 3:
                         reminder.Delete(calendar);
                         break;
 
-                    case 4:
+                    case 3:
                         // Exit mini-menu and return to main menu
                         Console.WriteLine("Returning to main menu...");
                         break;
@@ -149,13 +146,12 @@ class Program
     {
         int subChoice = 0;
 
-        while (subChoice != 4)
+        while (subChoice != 3)
         {
             Console.WriteLine("\n\nSelect from the following options:");
             Console.WriteLine("1. Create Event");
-            Console.WriteLine("2. Update Event");
-            Console.WriteLine("3. Delete Event");
-            Console.WriteLine("4. Back to Main Menu");
+            Console.WriteLine("2. Delete Event");
+            Console.WriteLine("3. Back to Main Menu");
             Console.Write("Enter your choice: ");
 
             if (int.TryParse(Console.ReadLine(), out subChoice))
@@ -167,54 +163,9 @@ class Program
                         break;
 
                     case 2:
-                        eventObj.Update();
-                        break;
-
-                    case 3:
                         eventObj.Delete(calendar);
                         break;
 
-                    case 4:
-                        // Exit mini-menu and return to main menu
-                        Console.WriteLine("Returning to main menu...");
-                        break;
-
-                    default:
-                        Console.WriteLine("Invalid choice. Please try again.");
-                        break;
-                }
-            }
-            else
-            {
-                Console.WriteLine("Invalid input. Please enter a number.");
-            }
-        }
-    }
-
-     private static void EditHolidayMenu(Holiday holiday, Calendar calendar)
-    {
-        int subChoice = 0;
-
-        while (subChoice != 4)
-        {
-            Console.WriteLine("\n\nSelect from the following options:");
-            Console.WriteLine("1. Create Holiday");
-            Console.WriteLine("2. Delete Holiday");
-            Console.WriteLine("3. Back to Main Menu");
-            Console.Write("Enter your choice: ");
-
-            if (int.TryParse(Console.ReadLine(), out subChoice))
-            {
-                switch (subChoice)
-                {
-                    case 1:
-                        holiday.Create(calendar);
-                        break;
-
-                    case 2:
-                        holiday.Delete(calendar);
-                        break;
-
                     case 3:
                         // Exit mini-menu and return to main menu
                         Console.WriteLine("Returning to main menu...");
@@ -231,11 +182,52 @@ class Program
             }
         }
     }
+
+    private static void EditHolidayMenu(Holiday holiday, Calendar calendar)
+{
+    int subChoice = 0;
+
+    while (subChoice != 3)
+    {
+        Console.WriteLine("\n\nSelect from the following options:");
+        Console.WriteLine("1. Create Holiday");
+        Console.WriteLine("2. Delete Holiday");
+        Console.WriteLine("3. Back to Main Menu");
+        Console.Write("Enter your choice: ");
+
+        if (int.TryParse(Console.ReadLine(), out subChoice))
+        {
+            switch (subChoice)
+            {
+                case 1:
+                    holiday.Create(calendar);
+                    break;
+
+                case 2:
+                    holiday.Delete(calendar);
+                    break;
+
+                case 3:
+                    // Exit mini-menu and return to main menu
+                    Console.WriteLine("Returning to main menu...");
+                    break;
+
+                default:
+                    Console.WriteLine("Invalid choice. Please try again.");
+                    break;
+            }
+        }
+        else
+        {
+            Console.WriteLine("Invalid input. Please enter a number.");
+        }
+    }
+}
     private static void DailyPlan(DailyPlan plan)
     {
         int subChoice = 0;
 
-        while (subChoice != 4)
+        while (subChoice != 3)
         {
             Console.WriteLine("\n\nSelect from the following options:");
             Console.WriteLine("1. View Best Practices");

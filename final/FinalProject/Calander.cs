@@ -168,36 +168,5 @@ public void RemoveEvent(int eventID)
         }
     }
 
-    public void UpdateEvent(int eventID)
-    {
-
-    }
-
-public void UpdateReminder(int reminderID)
-    {
-        Console.Write("Enter Reminder ID to update: ");
-        if (int.TryParse(Console.ReadLine(), out reminderID))
-        {
-            Reminder reminderToUpdate = _reminders.FirstOrDefault(r => r._reminderID == reminderID);
-            if (reminderToUpdate != null)
-            {
-                var (newTitle, newDescription, newDate) = reminderToUpdate.GetUpdatedData();
-
-                reminderToUpdate._title = newTitle;
-                reminderToUpdate._description = newDescription;
-                reminderToUpdate._date = newDate;
-
-                Console.WriteLine("Reminder updated successfully.");
-            }
-            else
-            {
-                Console.WriteLine("Reminder not found.");
-            }
-        }
-        else
-        {
-            Console.WriteLine("Invalid input. Please enter a valid integer.");
-        }
-    }
-
+   
 }

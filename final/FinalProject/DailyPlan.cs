@@ -1,6 +1,5 @@
 public class DailyPlan
 {
-    private int _priority;
     private List<Reminder> _reminders;
     private List<Event> _events;
 

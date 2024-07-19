@@ -56,33 +56,7 @@ public class Event : Add
         }
     }
 
-    public override void Update()
-    {
-        Console.Write("Update Title: ");
-        _title = Console.ReadLine();
-
-        Console.Write("Update Description: ");
-        _description = Console.ReadLine();
-
-        Console.Write("Update Start Date (yyyy-MM-dd): ");
-        string startDateInput = Console.ReadLine();
-
-        Console.Write("Update End Date (yyyy-MM-dd): ");
-        string endDateInput = Console.ReadLine();
-
-        if (DateTime.TryParseExact(startDateInput, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime startParsedDate) &&
-            DateTime.TryParseExact(endDateInput, "yyyy-MM-dd", null, System.Globalization.DateTimeStyles.None, out DateTime endParsedDate))
-        {
-            _startDate = new Date(startParsedDate.Year, startParsedDate.Month, startParsedDate.Day);
-            _endDate = new Date(endParsedDate.Year, endParsedDate.Month, endParsedDate.Day);
-
-            Console.WriteLine("Event updated successfully.");
-        }
-        else
-        {
-            Console.WriteLine("Invalid date format. Please enter the date in yyyy-MM-dd format.");
-        }
-    }
+    
 
     public override void Delete(Calendar calendar)
     {

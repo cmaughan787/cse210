@@ -7,10 +7,7 @@ public class Holiday : Add
     {
         _holidayDate = holidayDate;
     }
-    public override void Update()
-    {
-        //
-    }
+
         
     public override void Display()
     {
