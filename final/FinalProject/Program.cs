@@ -231,5 +231,45 @@ class Program
             }
         }
     }
+    private static void DailyPlan(DailyPlan plan)
+    {
+        int subChoice = 0;
+
+        while (subChoice != 4)
+        {
+            Console.WriteLine("\n\nSelect from the following options:");
+            Console.WriteLine("1. View Best Practices");
+            Console.WriteLine("2. View Example");
+            Console.WriteLine("3. Back to Main Menu");
+            Console.Write("Enter your choice: ");
+
+            if (int.TryParse(Console.ReadLine(), out subChoice))
+            {
+                switch (subChoice)
+                {
+                    case 1:
+                        plan.BestPractices();
+                        break;
+
+                    case 2:
+                        plan.Example();
+                        break;
+
+                    case 3:
+                        // Exit mini-menu and return to main menu
+                        Console.WriteLine("Returning to main menu...");
+                        break;
+
+                    default:
+                        Console.WriteLine("Invalid choice. Please try again.");
+                        break;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Invalid input. Please enter a number.");
+            }
+        }
+    }
 
 }

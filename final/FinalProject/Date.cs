@@ -11,6 +11,11 @@ public class Date
         _year = year;
     }
 
+    // public string DisplayDate(Date date)
+    // {
+    //    DateTime dateTime = new DateTime(_year, _month, _day);
+    //    return dateTime.ToString("D");      
+    // }
     public bool IsLeapYear()
     {
         if ((_year % 4 == 0 && _year % 100 != 0) || (_year % 400 == 0))

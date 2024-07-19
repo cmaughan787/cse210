@@ -92,27 +92,7 @@ public override void Update()
         Console.WriteLine("Reminder updated successfully.");
     }
 
-    // public void Delete()
-    // {
-    //     Display();
-    //     Console.Write("Please select a reminder");
-    //     Console.Read();
 
-    //     Console.WriteLine("Delete Reminder");
-    //     Console.Write("Are you sure you want to delete this reminder? (yes/no): ");
-    //     string confirmation = Console.ReadLine();
-
-    //     if (confirmation.ToLower() == "yes")
-    //     {
-    //         Calendar calender = new Calendar();
-    //         calender.RemoveReminder(newReminder);
-    //         Console.WriteLine("Reminder deleted successfully.");
-    //     }
-    //     else
-    //     {
-    //         Console.WriteLine("Reminder not deleted.");
-    //     }
-    // }
 
     public void Delete(Calendar calendar)
     {
@@ -138,12 +118,11 @@ public override void Update()
 
     public override void Display()
     {
-    Console.WriteLine("Display Reminder");
-    // base.Display();
-    Console.WriteLine($"Title: {_title}");
-    Console.WriteLine($"Description: {_description}");
-    Console.WriteLine($"Date: {_date}");
-    // Console.WriteLine($"Reminder ID: {_reminderID}");
+        // Console.WriteLine("Display Reminder");
+        Console.WriteLine($"Title: {_title}");
+        Console.WriteLine($"Description: {_description}");
+        Console.WriteLine($"Date: {_date.DisplayDate()}");
+        Console.WriteLine($"Reminder ID: {_reminderID}");
     }
     
 }
